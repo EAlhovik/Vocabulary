@@ -10,6 +10,9 @@ namespace Vocabulary
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/SignalR").Include(
+                        "~/Scripts/jquery.signalR-0.5.3.js"));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery/jquery-ui-{version}.js"));
