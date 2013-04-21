@@ -39,6 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.0.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -123,6 +132,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Dependencies\DataAccessModule.cs" />
+    <Compile Include="Dependencies\DomainServicesModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +234,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vocabulary.Business.Entities\Vocabulary.Business.Entities.csproj">
+      <Project>{e72bedea-ba93-42b6-b761-d536bc58b453}</Project>
+      <Name>Vocabulary.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vocabulary.Data.Contracts\Vocabulary.Data.Contracts.csproj">
+      <Project>{9A911226-6CA5-4CA3-84DA-98F4FF146DF2}</Project>
+      <Name>Vocabulary.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vocabulary.Data\Vocabulary.Data.csproj">
+      <Project>{0f51d096-d987-43f5-973a-ed48a17a4ee7}</Project>
+      <Name>Vocabulary.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

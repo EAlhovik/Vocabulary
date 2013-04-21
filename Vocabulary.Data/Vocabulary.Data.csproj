@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\IRepositoryProvider.cs" />
+    <Compile Include="Helpers\RepositoryFactories.cs" />
+    <Compile Include="Helpers\RepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EFRepository.cs" />
+    <Compile Include="Repositories\WordRepository.cs" />
+    <Compile Include="VocabularyDataBaseInitializer.cs" />
+    <Compile Include="VocabularyDbContext.cs" />
+    <Compile Include="VocabularyUow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vocabulary.Business.Entities\Vocabulary.Business.Entities.csproj">
+      <Project>{e72bedea-ba93-42b6-b761-d536bc58b453}</Project>
+      <Name>Vocabulary.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vocabulary.Data.Contracts\Vocabulary.Data.Contracts.csproj">
+      <Project>{9a911226-6ca5-4ca3-84da-98f4ff146df2}</Project>
+      <Name>Vocabulary.Data.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

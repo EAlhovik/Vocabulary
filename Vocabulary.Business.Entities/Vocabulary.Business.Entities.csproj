@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A911226-6CA5-4CA3-84DA-98F4FF146DF2}</ProjectGuid>
+    <ProjectGuid>{E72BEDEA-BA93-42B6-B761-D536BC58B453}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vocabulary.Data.Contracts</RootNamespace>
-    <AssemblyName>Vocabulary.Data.Contracts</AssemblyName>
+    <RootNamespace>Vocabulary.Business.Entities</RootNamespace>
+    <AssemblyName>Vocabulary.Business.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,16 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRepository.cs" />
-    <Compile Include="IVocabularyUow.cs" />
-    <Compile Include="IWordRepository.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Vocabulary.Business.Entities\Vocabulary.Business.Entities.csproj">
-      <Project>{e72bedea-ba93-42b6-b761-d536bc58b453}</Project>
-      <Name>Vocabulary.Business.Entities</Name>
-    </ProjectReference>
+    <Compile Include="Word.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
