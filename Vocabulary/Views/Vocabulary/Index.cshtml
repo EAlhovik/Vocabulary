@@ -1,5 +1,87 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Словарь";
 }
+<div class="row">
+    <div class="span6 offset3">
+        <div class="well">
+            <legend>Словарь</legend>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="row-fluid">
+                        <div class="span5">
+                            <select>
+                                <option>Русский</option>
+                                <option>Английский</option>
+                            </select>
+                        </div>
+                        <div class="span2">
+                            <div class="row-fluid">
+                                <div class="span2 offset5">
+                                    <i class="icon-retweet"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span5">
+                            <select>
+                                <option>Английский</option>
+                                <option>Русский</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <select id="resultSearch" size="15" class="input-block-level">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <input id="search" type="text" value="" class="input-block-level" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<h2>Index</h2>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/SignalR")
+    <script src="/signalr/hubs" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var vocabularyHub = $.connection.vocabularyHub;
+
+            vocabularyHub.publishWords = function(words) {
+                var resultSearchInput = $('#resultSearch');
+                resultSearchInput.html(resultSearchInput.html() + '<option>' + words + '</option>');
+            };
+            $.connection.hub.start();
+            $(document).keypress(function (e) {
+                if (e.which == 13) {
+                    vocabularyHub.searchWords($("#search").val());
+                    $("#search").val("");
+                }
+            });
+            
+            chatHub.publishMessage = function (nick, msg) {
+                var chatWin = $("#chatWindow");
+                chatWin.html(chatWin.html() + "<b>" + nick + "</b>: " + msg + "<br />");
+            };
+            
+        });
+    </script>
+
+}
