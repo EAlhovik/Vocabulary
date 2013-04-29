@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{D3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.Entities", "Vocabulary.Business.Entities\Vocabulary.Business.Entities.csproj", "{E72BEDEA-BA93-42B6-B761-D536BC58B453}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.Contracts", "Vocabulary.Business.Contracts\Vocabulary.Business.Contracts.csproj", "{A1933D53-E7FD-439F-ABBA-29346B25602C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.Services", "Vocabulary.Business.Services\Vocabulary.Business.Services.csproj", "{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{E72BEDEA-BA93-42B6-B761-D536BC58B453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E72BEDEA-BA93-42B6-B761-D536BC58B453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E72BEDEA-BA93-42B6-B761-D536BC58B453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1933D53-E7FD-439F-ABBA-29346B25602C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1933D53-E7FD-439F-ABBA-29346B25602C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1933D53-E7FD-439F-ABBA-29346B25602C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1933D53-E7FD-439F-ABBA-29346B25602C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +58,7 @@ Global
 		{0F51D096-D987-43F5-973A-ED48A17A4EE7} = {7E071716-AD7F-44BD-AF93-61C579AEA903}
 		{9A911226-6CA5-4CA3-84DA-98F4FF146DF2} = {7E071716-AD7F-44BD-AF93-61C579AEA903}
 		{E72BEDEA-BA93-42B6-B761-D536BC58B453} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
+		{A1933D53-E7FD-439F-ABBA-29346B25602C} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
+		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
 	EndGlobalSection
 EndGlobal

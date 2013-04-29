@@ -4,7 +4,13 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
+//using Autofac.Integration.Mvc;
 using Autofac.Integration.Mvc;
+using Microsoft.AspNet.SignalR;
+using Vocabulary.Business.Services;
+using Vocabulary.Data.Contracts;
+using Vocabulary.Hubs;
+
 
 namespace Vocabulary
 {
@@ -13,7 +19,9 @@ namespace Vocabulary
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static IVocabularyUow VocabularyUow;
         private static IContainer container;
+        private AutomapperConfigurator automapperConfigurator;
 
         protected void Application_Start()
         {
@@ -35,6 +43,7 @@ namespace Vocabulary
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
             container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
         }
 
         protected void Application_End()

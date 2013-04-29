@@ -1,17 +1,27 @@
 ﻿using System;
+using System.Linq;
 using SignalR.Hubs;
+using Vocabulary.Business.Contracts;
+using Vocabulary.Business.Services;
+using Vocabulary.Controllers;
+using Vocabulary.Data;
+using Vocabulary.Data.Contracts;
+using Vocabulary.Data.Helpers;
+using Autofac;
 
 namespace Vocabulary.Hubs
 {
+    //  [HubName("vocabularyHub")]
     public class VocabularyHub : Hub
     {
         public void SearchWords(string term)
         {
-            for (var i = 0; i < 100;i++ )
+
+            foreach (var item in MvcApplication.VocabularyUow.Words.All())
             {
-                System.Threading.Thread.Sleep(1);
-                Clients.PublishWords(String.Format("{0}-{0}-{1}", term,i));
+                Clients.PublishWords(String.Format("{0}", item.Key));
             }
+            Clients.PublishWords(String.Format("{0}-{0}-{1}", term, term));
         }
     }
 }

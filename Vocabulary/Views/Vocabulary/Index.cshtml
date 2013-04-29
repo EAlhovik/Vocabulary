@@ -76,7 +76,7 @@
                 }
             });
             
-            chatHub.publishMessage = function (nick, msg) {
+            vocabularyHub.publishMessage = function (nick, msg) {
                 var chatWin = $("#chatWindow");
                 chatWin.html(chatWin.html() + "<b>" + nick + "</b>: " + msg + "<br />");
             };
