@@ -3,6 +3,7 @@ using System.Data.Entity;
 using Vocabulary.Business.Entities;
 using Vocabulary.Data.Contracts;
 using Vocabulary.Data.Helpers;
+using Vocabulary.Data.Repositories;
 
 namespace Vocabulary.Data
 {
@@ -12,13 +13,15 @@ namespace Vocabulary.Data
     public class VocabularyUow : IVocabularyUow, IDisposable
     {
         private readonly DbContext dbContext;
-        private IRepositoryProvider RepositoryProvider { get; set; }
+     //   private IRepositoryProvider RepositoryProvider { get; set; }
 
-        public VocabularyUow(VocabularyDbContext dbContext, IRepositoryProvider repositoryProvider)
+        public VocabularyUow(VocabularyDbContext dbContext
+            //, IRepositoryProvider repositoryProvider
+            )
         {
             this.dbContext = dbContext;
             ConfigureDbContext();
-            RepositoryProvider = repositoryProvider;
+         //   RepositoryProvider = repositoryProvider;
         }
 
         #region IDisposable Members
@@ -43,7 +46,8 @@ namespace Vocabulary.Data
         {
             get
             {
-                return GetStandardRepo<Word>();
+                return new WordRepository(dbContext);
+             //   return GetStandardRepo<Word>();
             }
         }
 
@@ -57,10 +61,10 @@ namespace Vocabulary.Data
 
         #endregion
 
-        private IRepository<T> GetStandardRepo<T>() where T : class, IEntity
-        {
-            return RepositoryProvider.GetRepositoryForEntityType<T>();
-        }
+        //private IRepository<T> GetStandardRepo<T>() where T : class, IEntity
+        //{
+        //    return RepositoryProvider.GetRepositoryForEntityType<T>();
+        //}
 
         /// <summary>
         /// Dispose of the appropriate parameter value

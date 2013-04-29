@@ -12,7 +12,11 @@ namespace Vocabulary.Data
         {
             Database.SetInitializer(new VocabularyDataBaseInitializer());
         }
-
+        public VocabularyDbContext()
+            : base("name=VocabularyConnection")
+        {
+            
+        }
         public VocabularyDbContext(string connectionStringName)
             : base(connectionStringName)
         {

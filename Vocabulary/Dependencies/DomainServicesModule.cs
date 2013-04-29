@@ -10,12 +10,15 @@ namespace Vocabulary.Dependencies
     {
         protected override void Load(ContainerBuilder builder)
         {
-    //        builder.RegisterAssemblyTypes(typeof(VocabularyHub).Assembly)
-    //.Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(typeof(TicketManagementService).Assembly)
+            //    .Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(typeof(TicketBuilder).Assembly)
+            //    .Where(t => t.Name.EndsWith("Builder")).AsImplementedInterfaces();
 
-    //        //builder.RegisterType(typeof(VocabularyHub)).AsImplementedInterfaces().As(typeof(Hub)).InstancePerHttpRequest();
+            //builder.RegisterAssemblyTypes(typeof(FileWriter).Assembly).Where(t => t.Name.EndsWith("Writer")).AsImplementedInterfaces();
 
-    //        builder.RegisterType(typeof(VocabularyHub)).AsSelf().InstancePerHttpRequest();
+            //builder.RegisterType(typeof(TicketProfile)).AsImplementedInterfaces().As(typeof(Profile)).InstancePerHttpRequest();
+            //builder.RegisterType(typeof(AutomapperConfigurator)).AsSelf().InstancePerHttpRequest();
         }
     }
 }

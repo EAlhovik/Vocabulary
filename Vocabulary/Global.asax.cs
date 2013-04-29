@@ -19,9 +19,7 @@ namespace Vocabulary
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static IVocabularyUow VocabularyUow;
         private static IContainer container;
-        private AutomapperConfigurator automapperConfigurator;
 
         protected void Application_Start()
         {

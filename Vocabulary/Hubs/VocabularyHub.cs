@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using SignalR;
 using SignalR.Hubs;
 using Vocabulary.Business.Contracts;
 using Vocabulary.Business.Services;
@@ -11,13 +12,15 @@ using Autofac;
 
 namespace Vocabulary.Hubs
 {
-    //  [HubName("vocabularyHub")]
+    [HubName("vocabularyHub")]
     public class VocabularyHub : Hub
     {
         public void SearchWords(string term)
         {
+            var uow = new VocabularyUow(new VocabularyDbContext());
 
-            foreach (var item in MvcApplication.VocabularyUow.Words.All())
+
+            foreach (var item in uow.Words.All().ToList())
             {
                 Clients.PublishWords(String.Format("{0}", item.Key));
             }

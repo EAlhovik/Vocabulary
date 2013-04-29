@@ -6,11 +6,6 @@ namespace Vocabulary.Controllers
 {
     public class VocabularyController : BaseController
     {
-        
-        public VocabularyController(IVocabularyUow vocabularyUow)
-        {
-            MvcApplication.VocabularyUow  = vocabularyUow;
-        }
         public ActionResult Index()
         {
             return View();
