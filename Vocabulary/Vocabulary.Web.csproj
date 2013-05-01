@@ -173,6 +173,7 @@
     <Compile Include="Controllers\VocabularyController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
     <Compile Include="Dependencies\DomainServicesModule.cs" />
+    <Compile Include="Extensions\EnumDropDownList.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,6 +261,10 @@
     <ProjectReference Include="..\Vocabulary.Business.Services\Vocabulary.Business.Services.csproj">
       <Project>{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}</Project>
       <Name>Vocabulary.Business.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vocabulary.Business.ViewModels\Vocabulary.Business.ViewModels.csproj">
+      <Project>{9eb5dc60-9f45-4f39-ba87-37bb6f76c5a2}</Project>
+      <Name>Vocabulary.Business.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Vocabulary.Data.Contracts\Vocabulary.Data.Contracts.csproj">
       <Project>{9A911226-6CA5-4CA3-84DA-98F4FF146DF2}</Project>

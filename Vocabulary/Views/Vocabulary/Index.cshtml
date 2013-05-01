@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Vocabulary.Business.ViewModels.VocabularyViewModel
+@using Vocabulary.Extensions
+
+@{
     ViewBag.Title = "Словарь";
 }
 <div class="row">
@@ -9,10 +12,7 @@
                 <div class="controls">
                     <div class="row-fluid">
                         <div class="span5">
-                            <select>
-                                <option>Русский</option>
-                                <option>Английский</option>
-                            </select>
+                            @Html.EnumDropDownListFor(model => model.FromLanguage, new { id = "fromLanguage" })
                         </div>
                         <div class="span2">
                             <div class="row-fluid">
@@ -22,10 +22,7 @@
                             </div>
                         </div>
                         <div class="span5">
-                            <select>
-                                <option>Английский</option>
-                                <option>Русский</option>
-                            </select>
+                            @Html.EnumDropDownListFor(model => model.ToLanguage, new { id = "toLanguage" })
                         </div>
                     </div>
                 </div>
@@ -58,29 +55,30 @@
 
 @section scripts {
     @Scripts.Render("~/bundles/SignalR")
-    <script src="/signalr/hubs" type="text/javascript"></script>
+    <script src="~/signalr/hubs" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function () {
             var vocabularyHub = $.connection.vocabularyHub;
 
-            vocabularyHub.publishWords = function(words) {
+            vocabularyHub.publishWords = function (words) {
                 var resultSearchInput = $('#resultSearch');
                 resultSearchInput.html(resultSearchInput.html() + '<option>' + words + '</option>');
             };
             $.connection.hub.start();
             $(document).keypress(function (e) {
                 if (e.which == 13) {
-                    vocabularyHub.searchWords($("#search").val());
+                    $('#resultSearch').html("");
+                    vocabularyHub.searchWords($("#search").val(), $('#fromLanguage').val());
                     $("#search").val("");
                 }
             });
-            
+
             vocabularyHub.publishMessage = function (nick, msg) {
                 var chatWin = $("#chatWindow");
                 chatWin.html(chatWin.html() + "<b>" + nick + "</b>: " + msg + "<br />");
             };
-            
+
         });
     </script>
 

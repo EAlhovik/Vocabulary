@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.Contrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.Services", "Vocabulary.Business.Services\Vocabulary.Business.Services.csproj", "{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vocabulary.Business.ViewModels", "Vocabulary.Business.ViewModels\Vocabulary.Business.ViewModels.csproj", "{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +66,6 @@ Global
 		{E72BEDEA-BA93-42B6-B761-D536BC58B453} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
 		{A1933D53-E7FD-439F-ABBA-29346B25602C} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
 		{AF6AE8F9-D4D4-4F58-81FA-BD5F59AA0EA7} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
+		{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2} = {D3DC0A82-1753-4424-9999-CF792475D7EE}
 	EndGlobalSection
 EndGlobal

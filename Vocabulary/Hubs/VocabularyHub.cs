@@ -3,6 +3,7 @@ using System.Linq;
 using SignalR;
 using SignalR.Hubs;
 using Vocabulary.Business.Contracts;
+using Vocabulary.Business.Entities;
 using Vocabulary.Business.Services;
 using Vocabulary.Controllers;
 using Vocabulary.Data;
@@ -15,16 +16,15 @@ namespace Vocabulary.Hubs
     [HubName("vocabularyHub")]
     public class VocabularyHub : Hub
     {
-        public void SearchWords(string term)
+        public void SearchWords(string term, LanguageEnum fromLanguage)
         {
             var uow = new VocabularyUow(new VocabularyDbContext());
+            ISearchService searchService = new SearchService(uow);
 
-
-            foreach (var item in uow.Words.All().ToList())
+            foreach (var item in searchService.SearchByTerm(term, fromLanguage))
             {
-                Clients.PublishWords(String.Format("{0}", item.Key));
+                Clients.PublishWords(String.Format("{0} - {1}", item.Key, fromLanguage.ToString()));
             }
-            Clients.PublishWords(String.Format("{0}-{0}-{1}", term, term));
         }
     }
 }

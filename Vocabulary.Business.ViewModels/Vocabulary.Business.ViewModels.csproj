@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1933D53-E7FD-439F-ABBA-29346B25602C}</ProjectGuid>
+    <ProjectGuid>{9EB5DC60-9F45-4F39-BA87-37BB6F76C5A2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vocabulary.Business.Contracts</RootNamespace>
-    <AssemblyName>Vocabulary.Business.Contracts</AssemblyName>
+    <RootNamespace>Vocabulary.Business.ViewModels</RootNamespace>
+    <AssemblyName>Vocabulary.Business.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,8 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISearchService.cs" />
-    <Compile Include="IVocabularyService.cs" />
+    <Compile Include="VocabularyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
