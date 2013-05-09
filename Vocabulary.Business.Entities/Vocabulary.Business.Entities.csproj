@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="Entity.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="LanguageEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThemeEnum.cs" />
     <Compile Include="Word.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

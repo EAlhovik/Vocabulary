@@ -8,13 +8,8 @@ namespace Vocabulary.Business.ViewModels
     public class VocabularyViewModel
     {
         /// <summary>
-        /// Gets or sets from language.
+        /// Gets or sets the theme.
         /// </summary>
-        public LanguageEnum FromLanguage { get; set; }
-
-        /// <summary>
-        /// Gets or sets to language.
-        /// </summary>
-        public LanguageEnum ToLanguage { get; set; }
+        public ThemeEnum Theme { get; set; }
     }
 }

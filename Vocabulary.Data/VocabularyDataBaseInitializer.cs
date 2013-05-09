@@ -16,11 +16,11 @@ namespace Vocabulary.Data
         {
             List<Word> words = new List<Word>()
                                    {
-                                       new Word(){Key = "крааль",Language = LanguageEnum.Ru, Description = "kraal"},
-                                       new Word(){Key = "князь",Language = LanguageEnum.Ru, Description = "prince"},
-                                       new Word(){Key = "нравиться",Language = LanguageEnum.Ru, Description = "please"},
-                                       new Word(){Key = "нравоучение",Language = LanguageEnum.Ru, Description = "lecture, moral admonition;"},
-                                       new Word(){Key = "ко всем чертям!",Language = LanguageEnum.Ru, Description = "to hell with it!"},
+                                       new Word(){Key = "крааль",Theme = ThemeEnum.All, Description = "kraal"},
+                                       new Word(){Key = "князь",Theme = ThemeEnum.All, Description = "prince"},
+                                       new Word(){Key = "нравиться",Theme = ThemeEnum.All, Description = "please"},
+                                       new Word(){Key = "нравоучение",Theme = ThemeEnum.All, Description = "lecture, moral admonition;"},
+                                       new Word(){Key = "ко всем чертям!",Theme = ThemeEnum.All, Description = "to hell with it!"},
                                    };
             foreach (Word word in words)
             {

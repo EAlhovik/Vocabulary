@@ -13,7 +13,8 @@ namespace Vocabulary.Business.Contracts
         /// Searches the by term.
         /// </summary>
         /// <param name="term">The search term.</param>
+        /// <param name="theme">type theme </param>
         /// <returns>Collection words</returns>
-        IEnumerable<Word> SearchByTerm(String term, LanguageEnum language);
+        IEnumerable<Word> SearchByTerm(String term, ThemeEnum theme);
     }
 }

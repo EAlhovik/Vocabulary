@@ -8,7 +8,7 @@ namespace Vocabulary.Business.Entities
     public class Word : Entity
     {
         public String Key { get; set; }
-        public LanguageEnum Language { get; set; }
+        public ThemeEnum Theme { get; set; }
         public String Description { get; set; }
     }
 }

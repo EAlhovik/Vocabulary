@@ -23,14 +23,15 @@ namespace Vocabulary.Business.Services
         /// Searches the by term.
         /// </summary>
         /// <param name="term">The search term.</param>
+        /// <param name="theme"> </param>
         /// <returns> Collection words. </returns>
-        public IEnumerable<Word> SearchByTerm(string term, LanguageEnum language)
+        public IEnumerable<Word> SearchByTerm(string term, ThemeEnum theme)
         {
             if (String.IsNullOrEmpty(term))
             {
-                return vocabularyUow.Words.All().Where(w => w.Language == language);
+                return vocabularyUow.Words.All().Where(w => w.Theme == theme);
             }
-            return vocabularyUow.Words.All().Where(w => w.Key.Contains(term) && w.Language == language);
+            return vocabularyUow.Words.All().Where(w => w.Key.Contains(term) && w.Theme == theme);
         }
     }
 }

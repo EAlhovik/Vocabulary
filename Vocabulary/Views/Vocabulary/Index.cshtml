@@ -2,31 +2,22 @@
 @using Vocabulary.Extensions
 
 @{
-    ViewBag.Title = "Словарь";
+    ViewBag.Title = "Словарь терминов и сокращений";
 }
 <div class="row">
     <div class="span6 offset3">
-        <div class="well">
-            <legend>Словарь</legend>
-            <div class="control-group">
-                <div class="controls">
-                    <div class="row-fluid">
-                        <div class="span5">
-                            @Html.EnumDropDownListFor(model => model.FromLanguage, new { id = "fromLanguage" })
-                        </div>
-                        <div class="span2">
-                            <div class="row-fluid">
-                                <div class="span2 offset5">
-                                    <i class="icon-retweet"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span5">
-                            @Html.EnumDropDownListFor(model => model.ToLanguage, new { id = "toLanguage" })
-                        </div>
+        <div class="well ">
+            <legend>Словарь терминов и сокращений</legend>
+            <div class="form-horizontal">
+                <div class="control-group">
+
+                    <label class="control-label" for="username">Username</label>
+                    <div class="controls">
+                        @Html.EnumDropDownListFor(model => model.Theme, new { id = "theme" })
                     </div>
                 </div>
             </div>
+
             <div class="control-group">
                 <div class="controls">
                     <div class="row-fluid">
@@ -69,7 +60,7 @@
             $(document).keypress(function (e) {
                 if (e.which == 13) {
                     $('#resultSearch').html("");
-                    vocabularyHub.searchWords($("#search").val(), $('#fromLanguage').val());
+                    vocabularyHub.searchWords($("#search").val(), $('#theme').val());
                     $("#search").val("");
                 }
             });
