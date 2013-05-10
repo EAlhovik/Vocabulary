@@ -168,7 +168,6 @@
     <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
-    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VocabularyController.cs" />
     <Compile Include="Dependencies\DataAccessModule.cs" />
@@ -177,7 +176,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\Chat.cs" />
     <Compile Include="Hubs\VocabularyHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -232,7 +230,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Shared\_html5shiv.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Shared\Details.cshtml" />
@@ -241,6 +238,8 @@
     <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <Content Include="Views\Shared\_alerts.cshtml" />
     <Content Include="Views\Vocabulary\Index.cshtml" />
+    <Content Include="Views\Vocabulary\EditorTemplates\DescriptionViewModel.cshtml" />
+    <Content Include="Views\Vocabulary\EditorTemplates\DisplayListViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

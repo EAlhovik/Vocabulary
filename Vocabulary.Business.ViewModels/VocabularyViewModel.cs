@@ -1,5 +1,4 @@
-﻿using Vocabulary.Business.Entities;
-
+﻿
 namespace Vocabulary.Business.ViewModels
 {
     /// <summary>
@@ -8,8 +7,13 @@ namespace Vocabulary.Business.ViewModels
     public class VocabularyViewModel
     {
         /// <summary>
-        /// Gets or sets the theme.
+        /// Gets or sets the description.
         /// </summary>
-        public ThemeEnum Theme { get; set; }
+        public DescriptionViewModel Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the display list.
+        /// </summary>
+        public DisplayListViewModel DisplayList { get; set; }
     }
 }

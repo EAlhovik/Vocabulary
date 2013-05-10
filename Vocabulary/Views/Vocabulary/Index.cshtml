@@ -1,45 +1,13 @@
 ﻿@model Vocabulary.Business.ViewModels.VocabularyViewModel
-@using Vocabulary.Extensions
-
 @{
     ViewBag.Title = "Словарь терминов и сокращений";
 }
 <div class="row">
-    <div class="span6 offset3">
-        <div class="well ">
-            <legend>Словарь терминов и сокращений</legend>
-            <div class="form-horizontal">
-                <div class="control-group">
-
-                    <label class="control-label" for="username">Username</label>
-                    <div class="controls">
-                        @Html.EnumDropDownListFor(model => model.Theme, new { id = "theme" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="controls">
-                    <div class="row-fluid">
-                        <div class="span12">
-                            <select id="resultSearch" size="15" class="input-block-level">
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <div class="row-fluid">
-                        <div class="span12">
-                            <input id="search" type="text" value="" class="input-block-level" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
+    <div class="span6">
+        @Html.EditorFor(model => model.DisplayList)
+    </div>
+    <div class="span6">
+        @Html.EditorFor(model => model.Description)
     </div>
 </div>
 
@@ -50,27 +18,102 @@
 
     <script type="text/javascript">
         $(function () {
-            var vocabularyHub = $.connection.vocabularyHub;
+            initialize();
+        });
+
+        function initialize() {
+            initializeSignalR.call(this);
+            initializeEvent.call(this);
+        }
+
+        function initializeSignalR() {
+            this.vocabularyHub = $.connection.vocabularyHub;
 
             vocabularyHub.publishWords = function (words) {
                 var resultSearchInput = $('#resultSearch');
-                resultSearchInput.html(resultSearchInput.html() + '<option>' + words + '</option>');
+                resultSearchInput.html(resultSearchInput.html() + '<option value="' + words + '">' + words + '</option>');
             };
             $.connection.hub.start();
-            $(document).keypress(function (e) {
-                if (e.which == 13) {
-                    $('#resultSearch').html("");
-                    vocabularyHub.searchWords($("#search").val(), $('#theme').val());
-                    $("#search").val("");
-                }
-            });
+
 
             vocabularyHub.publishMessage = function (nick, msg) {
                 var chatWin = $("#chatWindow");
                 chatWin.html(chatWin.html() + "<b>" + nick + "</b>: " + msg + "<br />");
             };
 
-        });
+            vocabularyHub.publishDescription = function (key, theme, description) {
+                $('h3#title').html(key);
+                $('h5#theme').html(theme);
+                $('p#description').html(description);
+            };
+
+            vocabularyHub.publishDescriptionForModal = function (word) {
+                var descriptionModal = $('#descriptionModal');
+                $('#titleWord').val(word.Key);
+                $('#themeWord').html(word.Theme);
+                $('#descriptionWord').val(word.Description);
+                $('#idWord').val(word.Id);
+                descriptionModal.modal();
+            };
+
+            vocabularyHub.publishUpdated = function (message) {
+                alert(message);
+            };
+        }
+
+        function initializeEvent() {
+            var vocabularyHub = this.vocabularyHub;
+            $("select#resultSearch").change(function () {
+                if ($(this).children(":selected").length) {
+                    vocabularyHub.getDescription($(this).children(":selected").val());
+                }
+            });
+            $(document).keypress(function (e) {
+                if (e.which == 13) {
+                    startSearchWords();
+                }
+            });
+            $('#searchBtn').click(function () {
+                startSearchWords();
+            });
+
+            function startSearchWords() {
+                $('#resultSearch').html("");
+                vocabularyHub.searchWords($("#search").val(), $('#theme').val());
+                $("#search").val("");
+                enambleBtns();
+            }
+
+            $('a#edit').click(function () {
+                vocabularyHub.getDescriptionForModal($('select#resultSearch').children(":selected").val());
+            });
+
+            $('a#new').click(function () {
+                var descriptionModal = $('#descriptionModal');
+                $('#titleWord').val('');
+                $('#themeWord').html(0);
+                $('#descriptionWord').val('');
+                $('#idWord').val(0);
+                descriptionModal.modal();
+            });
+
+
+
+            $('#create').click(function () {
+                var word = new Object();
+                word.Key = $('#titleWord').val();
+                word.Theme = $('#themeWord').html();
+                word.Description = $('#descriptionWord').val();
+                word.Id = $('#idWord').val();
+                vocabularyHub.updateWord(word);
+            });
+        }
+
+        function enambleBtns() {
+            $('#contaiterBtns .span1 a.btn').each(function () {
+                $(this).removeClass('disabled');
+            });
+        }
     </script>
 
 }

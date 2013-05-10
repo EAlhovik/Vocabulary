@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DescriptionViewModel.cs" />
+    <Compile Include="DisplayListViewModel.cs" />
     <Compile Include="VocabularyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

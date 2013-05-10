@@ -1,0 +1,57 @@
+﻿@model Vocabulary.Business.ViewModels.DescriptionViewModel
+
+<div class="well ">
+    <div class="row" id="contaiterBtns">
+        <div class="span1 pull-right">
+            <a href="#" class="btn btn-danger disabled">
+                <i class="icon-trash icon-white"></i>
+                <span><strong>Delete</strong></span>
+            </a>
+        </div>
+        <div class="span1 pull-right">
+            <a href="#" id="edit" class="btn btn-warning disabled">
+                <i class="icon-edit icon-white"></i>
+                <span><strong>Edit</strong></span>
+            </a>
+        </div>
+        <div class="span1 pull-right">
+            <a href="#" id="new" class="btn btn-success">
+                <i class="icon-plus-sign icon-white"></i>
+                <span><strong>New</strong></span>
+            </a>
+        </div>
+    </div>
+    <legend>Описание:</legend>
+    <div>
+        <h3 id="title">123</h3>
+        <h5 id="theme">Тема:<span>123</span></h5>
+        <p id="description">dasdas</p>
+    </div>
+</div>
+
+
+
+
+<div class="modal hide" id="descriptionModal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">x</button>
+        <h3>Создание нового термина</h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" action='' name="login_form">
+            <p>
+                <input type="text" class="span3" name="eid" id="titleWord" placeholder="Термин">
+            </p>
+            <p>Тема: <span id="themeWord"></span></p>
+            <p>Описание</p>
+            <p>
+                <textarea id="descriptionWord" style="resize: none; width: 95%" rows="5"></textarea>
+            </p>
+            <input type="hidden" id="idWord"/>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="create" class="btn btn-success" data-dismiss="modal">Сохранить</a>
+    </div>
+</div>
